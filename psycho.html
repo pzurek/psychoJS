@@ -15,9 +15,10 @@
         //ctx.fillStyle = "rgb(200,0,0)";
         //ctx.fillRect (10, 10, 55, 50);
 
-        ctx.fillStyle = "rgba(47, 77, 135, 0.75)";
+        ctx.fillStyle = "rgba(47, 77, 135, 0.91)";
         ctx.fillRect (0, 0, canvas.width, canvas.height);
 		
+        ctx.fillStyle = "rgba(255, 255, 255, 0.49)";
 		ctx.strokeStyle = "rgb(255,255,255)";
 		ctx.lineWidth = 5;
 				
@@ -25,7 +26,7 @@
 		shapeGap    = 0.25 * shapeHeight;
 		shapeWidth  = 2.5 * shapeHeight;
 		
-		drawOutline = true;
+		drawOutline = false;
 		withShadow  = true;
 		
 		drawRectangle       (ctx, 50, 50 + 0*(shapeHeight + shapeGap), shapeWidth, shapeHeight, drawOutline, withShadow);
@@ -37,7 +38,7 @@
     }
   </script>
  </head>
- <body onload="draw();" onresize="draw();">
+ <body onload="draw();">
    <canvas id="canvas">
      <p>This example requires a browser that supports the
      <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 

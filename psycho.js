@@ -5,17 +5,22 @@ function addShadow(ctx) {
 		ctx.shadowColor = 'black';
 }
 
+function removeShadow(ctx) {
+		ctx.shadowOffsetX = 0;
+		ctx.shadowOffsetY = 0;
+		ctx.shadowBlur =    0;
+		ctx.shadowColor = '';
+}
+
 function drawRectangle(ctx, originX, originY, width, height, drawOutline, withShadow) {
 	if (drawOutline)
 		drawOutlineRect(ctx, originX, originY, width, height);
 	ctx.save();
-	if (withShadow)
-		addShadow(ctx);
 	thicknessOffset = ctx.lineWidth/2;
 	ctx.beginPath();
 	ctx.rect(originX + thicknessOffset, originY + thicknessOffset,
 			 width - 2 * thicknessOffset, height - 2 * thicknessOffset);
-	ctx.stroke();
+    paint(ctx);
 	ctx.restore();
 }
 
@@ -23,8 +28,6 @@ function drawRoundedRectangle(ctx, originX, originY, width, height, drawOutline,
 	if (drawOutline)
 		drawOutlineRect(ctx, originX, originY, width, height);
 	ctx.save();
-	if (withShadow)
-		addShadow(ctx);
 	thicknessOffset = ctx.lineWidth/2;
 	radius = height/4;
 	PI = 3.141549;
@@ -39,8 +42,7 @@ function drawRoundedRectangle(ctx, originX, originY, width, height, drawOutline,
 	ctx.arc   (originX + radius + thicknessOffset         ,originY + radius + thicknessOffset,
 			   radius, 180 *(PI/180), 270 *(PI/180));
 	ctx.closePath();
-	ctx.fill();
-	ctx.stroke();
+    paint(ctx);
 	ctx.restore();
 }
 
@@ -48,8 +50,6 @@ function drawHexagon(ctx, originX, originY, width, height, drawOutline, withShad
 	if (drawOutline)
 		drawOutlineRect(ctx, originX, originY, width, height);
 	ctx.save();
-	if (withShadow)
-		addShadow(ctx);
 	thicknessOffset = ctx.lineWidth/2;
 	ctx.beginPath();
 	ctx.moveTo(originX + height/2 + thicknessOffset         ,originY + thicknessOffset);
@@ -59,7 +59,7 @@ function drawHexagon(ctx, originX, originY, width, height, drawOutline, withShad
 	ctx.lineTo(originX + height/2 + thicknessOffset         ,originY + height - thicknessOffset);
 	ctx.lineTo(originX + thicknessOffset                    ,originY + height/2);
 	ctx.closePath();
-	ctx.stroke();
+    paint(ctx);
 	ctx.restore();
 }
 
@@ -67,8 +67,6 @@ function drawOctagon(ctx, originX, originY, width, height, drawOutline, withShad
 	if (drawOutline)
 		drawOutlineRect(ctx, originX, originY, width, height);
 	ctx.save();
-	if (withShadow)
-		addShadow(ctx);
 	thicknessOffset = ctx.lineWidth/2;
 	chamfer = height/4;
 	ctx.beginPath();
@@ -81,7 +79,7 @@ function drawOctagon(ctx, originX, originY, width, height, drawOutline, withShad
 	ctx.lineTo(originX + thicknessOffset                    ,originY + height - chamfer - thicknessOffset);
 	ctx.lineTo(originX + thicknessOffset                    ,originY + chamfer + thicknessOffset);
 	ctx.closePath();
-	ctx.stroke();
+    paint(ctx);
 	ctx.restore();
 }
 
@@ -89,8 +87,6 @@ function drawEllipse(ctx, originX, originY, width, height, drawOutline, withShad
 	if (drawOutline)
 		drawOutlineRect(ctx, originX, originY, width, height);
 	ctx.save();
-	if (withShadow)
-		addShadow(ctx);
 	thicknessOffset = ctx.lineWidth/2;
 	ctx.beginPath();
 	ctx.moveTo(originX + width/2, originY + thicknessOffset);
@@ -103,8 +99,18 @@ function drawEllipse(ctx, originX, originY, width, height, drawOutline, withShad
 	ctx.quadraticCurveTo(originX + thicknessOffset,         originY + thicknessOffset,
 						 originX + width/2,                 originY + thicknessOffset);
 	ctx.closePath();
-	ctx.stroke();
+    paint(ctx);
 	ctx.restore();
+}
+
+function paint(ctx) {
+	if (withShadow) {
+		addShadow(ctx);
+		ctx.stroke();
+		removeShadow(ctx);	
+	}
+	ctx.fill();
+	ctx.stroke();
 }
 
 function drawOutlineRect(ctx, originX, originY, width, height) {

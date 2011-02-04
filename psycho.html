@@ -1,0 +1,46 @@
+<html>
+ <head>
+  <script src="psycho.js"></script>
+  <script type="application/x-javascript">
+    function draw() {
+      var canvas = document.getElementById("canvas");
+	  canvas.width = document.width - 2 * canvas.offsetLeft;
+	  canvas.height = document.height - 2 * canvas.offsetTop;
+	  canvas.offsetLeft = 0;
+	  canvas.offsetTop = 0;
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        //ctx.fillStyle = "rgb(200,0,0)";
+        //ctx.fillRect (10, 10, 55, 50);
+
+        ctx.fillStyle = "rgba(47, 77, 135, 0.75)";
+        ctx.fillRect (0, 0, canvas.width, canvas.height);
+		
+		ctx.strokeStyle = "rgb(255,255,255)";
+		ctx.lineWidth = 5;
+				
+		shapeHeight = 100;
+		shapeGap    = 0.25 * shapeHeight;
+		shapeWidth  = 2.5 * shapeHeight;
+		
+		drawOutline = true;
+		withShadow  = true;
+		
+		drawRectangle       (ctx, 50, 50 + 0*(shapeHeight + shapeGap), shapeWidth, shapeHeight, drawOutline, withShadow);
+		drawHexagon         (ctx, 50, 50 + 1*(shapeHeight + shapeGap), shapeWidth, shapeHeight, drawOutline, withShadow);
+		drawOctagon         (ctx, 50, 50 + 2*(shapeHeight + shapeGap), shapeWidth, shapeHeight, drawOutline, withShadow);
+		drawRoundedRectangle(ctx, 50, 50 + 3*(shapeHeight + shapeGap), shapeWidth, shapeHeight, drawOutline, withShadow);
+		drawEllipse         (ctx, 50, 50 + 4*(shapeHeight + shapeGap), shapeWidth, shapeHeight, drawOutline, withShadow);
+      }
+    }
+  </script>
+ </head>
+ <body onload="draw();" onresize="draw();">
+   <canvas id="canvas">
+     <p>This example requires a browser that supports the
+     <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+     &lt;canvas&gt; feature.</p>
+   </canvas>
+ </body>
+</html>

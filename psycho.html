@@ -3,14 +3,25 @@
  <head>
   <meta charset="utf-8"/>
   <title>psycho.js - mind mapping on the web</title>
-  <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
   <script type="application/x-javascript">
   </script>
   <script src="psycho.js"></script>
+  <script src="psycho.location.js"></script>  
+  <script src="psycho.TopicList.js"></script>  
+  <script src="psycho.Style.js"></script>
+  <script src="psycho.Point.js"></script>
+  <script src="psycho.Topic.js"></script>  
+  <script src="psycho.Settings.js"></script>
+  <script src="psycho.Map.js"></script>
+  <script src="psycho.drawing.js"></script>
+  <script src="psycho.Layout.js"></script>
+  <script src="psycho.MapLayout.js"></script>
+  <!--
+  <script src="psycho.App.js"></script>
+  -->
  </head>
- <body onload="draw();">
-   <canvas id="canvas">
+ <body onload="psycho.init();" style="margin: 0px;">
+   <canvas id="canvas" style="border:solid 1px white">
      <p>This example requires a browser that supports the
      <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
      &lt;canvas&gt; feature.</p>

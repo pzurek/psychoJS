@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>test.js</title>
+  <meta charset="utf-8"/>
+  <link rel="shortcut icon" href="beca_logo_16.ico" />
+  <script src="test.1.js"></script>
+  <script src="test.2.js"></script>
+  <script type="application/x-javascript">
+  function drawText() {
+    canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx = canvas.getContext('2d');
+    ctx.font = "32px Arial";
+    ctx.fillText("Test text 00", 10, 50);
+    ctx.fillText("Test text 10", 10.1, 80);
+    ctx.fillText("Test text 20", 10.2, 110);
+    ctx.fillText("Test text 30", 10.3, 140);
+    ctx.fillText("Test text 40", 10.4, 170);
+    ctx.fillText("Test text 50", 10.5, 200);
+    ctx.fillText("Test text 60", 10.6, 230);
+    ctx.fillText("Test text 70", 10.7, 260);
+    ctx.fillText("Test text 80", 10.8, 290);
+    ctx.fillText("Test text 90", 10.9, 320);
+    ctx.fillText("Test text 00", 11, 350);
+    ctx.fillText("Test text 00", 210.5, 50.0 );
+    ctx.fillText("Test text 10", 210.5, 80.1 );
+    ctx.fillText("Test text 20", 210.5, 110.2);
+    ctx.fillText("Test text 30", 210.5, 140.3);
+    ctx.fillText("Test text 40", 210.5, 170.4);
+    ctx.fillText("Test text 50", 210.5, 200.5);
+    ctx.fillText("Test text 60", 210.5, 230.6);
+    ctx.fillText("Test text 70", 210.5, 260.7);
+    ctx.fillText("Test text 80", 210.5, 290.8);
+    ctx.fillText("Test text 90", 210.5, 320.9);
+    ctx.fillText("Test text 00", 210.5, 351.0);
+  };
+  </script>
+ </head>
+ <body onload="drawText();" style="margin: 0px;">
+   <canvas id="canvas" style="border:solid 1px white">
+     <p>This example requires a browser that supports the
+     <a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+     &lt;canvas&gt; feature.</p>
+   </canvas>
+ </body>
+</html>
